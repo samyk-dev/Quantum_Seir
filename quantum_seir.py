@@ -188,7 +188,7 @@ for comp in ["S","E","I","R"]:
         y=pd.concat([df_hi[comp], df_lo[comp][::-1]]),
         fill="toself",
         fillcolor=colors[comp],
-        opacity=0.2,
+        opacity=0.5,
         line=dict(color="rgba(255,255,255,0)"),
         showlegend=False
     ))
