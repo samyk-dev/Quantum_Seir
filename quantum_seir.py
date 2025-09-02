@@ -176,27 +176,33 @@ fig = go.Figure()
 colors = {"S":"blue","E":"orange","I":"red","R":"green"}
 
 for comp in ["S","E","I","R"]:
+    # Main mean line
     fig.add_trace(go.Scatter(
         x=df["Step"],
         y=df[comp],
         mode="lines",
         name=f"{compartments[comp]} mean",
-        line=dict(color=colors[comp])
+        line=dict(color=colors[comp], width=3),  
+        opacity=0.9
     ))
+    # Uncertainty band
     fig.add_trace(go.Scatter(
         x=pd.concat([df["Step"], df["Step"][::-1]]),
         y=pd.concat([df_hi[comp], df_lo[comp][::-1]]),
         fill="toself",
         fillcolor=colors[comp],
-        opacity=0.5,
+        opacity=0.4,
         line=dict(color="rgba(255,255,255,0)"),
-        showlegend=False
+        showlegend=False,
+        hoverinfo="skip",
+        name=f"{compartments[comp]} uncertainty"
     ))
 
 fig.update_layout(
     title="Chemical Process Dynamics with Uncertainty Bands" if preset=="Chemical Engineering" else "SEIR Dynamics with Uncertainty Bands",
     xaxis_title="Time Step",
-    yaxis_title="Quantity / Concentration" if preset=="Chemical Engineering" else "Population"
+    yaxis_title="Quantity / Concentration" if preset=="Chemical Engineering" else "Population",
+    hovermode="x unified"
 )
 st.plotly_chart(fig, use_container_width=True)
 
