@@ -85,7 +85,7 @@ def simulate_ensemble(n_runs, n_nodes, steps, beta, sigma, gamma, network, k, po
 # Streamlit UI
 # -----------------------------
 st.set_page_config(page_title="Probabilistic SEIR Extensions", layout="wide")
-st.title("Quantum-Inspired SEIR Model: Superstate Nodes for Epidemiology & Engineering")
+st.title("Quantum-Inspired Probabilistic Modeling for Networked Systems")
 
 # --------- Preset selector with dynamic defaults and compartments --------------
 preset = st.sidebar.selectbox("Select Model Preset", ["Epidemiology (SEIR)", "Chemical Engineering"])
