@@ -2,6 +2,8 @@
 
 This project implements a **probabilistic node-network model** inspired by quantum principles to simulate **SEIR dynamics** and **chemical analogs**. Nodes exist in **superposition across compartments** (`S, E, I, R`), enabling efficient uncertainty quantification, stochastic variability, and realistic networked interactions. Originally developed as a midterm project, the model was refined and expanded into a full application with interactive simulation and analysis features.
 
+![Example SEIR Plot](newplot.png)
+
 ---
 
 ## Table of Contents
